@@ -5,7 +5,7 @@ local myAddon, core = ...;
 local func = core.func;
 local data = core.data;
 
-local addonName = "|cfff563ff[ClassicPlates Plus]: ";
+local addonName = "|cfff563ff[經典血條 Plus]: ";
 
 -- Colors
 local yellow = "|cff" .. "ffd100";
@@ -536,14 +536,14 @@ function func:CreatePanel(mainPanelName, name)
     panel.title = panel:CreateFontString(nil, "overlay", "GameFontHighlightHuge");
     panel.title:SetPoint("bottomLeft", panel.icon, "bottomRight", 8, 0);
     panel.title:SetJustifyH("left");
-    panel.title:SetText("ClassicPlates Plus" .. nameDivider .. name);
+    panel.title:SetText("經典血條 Plus" .. nameDivider .. name);
 
     -- Button: Reset all settings
     if mainPanelName then
         panel.resetSettings = CreateFrame("Button", nil, panel.header, "GameMenuButtonTemplate");
         panel.resetSettings:SetPoint("right", -36, -2);
         panel.resetSettings:SetSize(96, 22);
-        panel.resetSettings:SetText("Defaults");
+        panel.resetSettings:SetText("預設值");
         panel.resetSettings:SetNormalFontObject("GameFontNormal");
         panel.resetSettings:SetHighlightFontObject("GameFontHighlight");
 
@@ -556,10 +556,10 @@ function func:CreatePanel(mainPanelName, name)
             timeout = 0,
             whileDead = true,
             hideOnEscape = true,
-            text = "Do you want to reset ClassicPlates Plus settings?",
-            button1 = "All Settings",
-            button2 = "Cancel",
-            button3 = "These Settings",
+            text = "是否要重置經典血條 Plus 的設定?",
+            button1 = "所有設定",
+            button2 = "取消",
+            button3 = "這些設定",
 
             -- Reset All Settings
             OnAccept = function()
@@ -1113,7 +1113,7 @@ function func:Create_ColorPicker(panel, flair, name, tooltip, cfg, default)
     local frame_reset = CreateFrame("button", nil, parent, "GameMenuButtonTemplate");
     frame_reset:SetPoint("left", frame_texture, "right", 16, 0);
     frame_reset:SetSize(96, 22);
-    frame_reset:SetText("Reset");
+    frame_reset:SetText("重置");
     frame_reset:SetNormalFontObject("GameFontNormal");
     frame_reset:SetHighlightFontObject("GameFontHighlight");
     frame_reset:SetScript("Onclick", function()
@@ -1270,7 +1270,7 @@ function func:Create_AurasList(panel, name, cfg)
     frame_PopUp.ButtonClose = CreateFrame("Button", nil, frame_PopUp, "GameMenuButtonTemplate");
     frame_PopUp.ButtonClose:SetPoint("topRight", frame_PopUp.InputBox, "bottomright", 0, -8);
     frame_PopUp.ButtonClose:SetSize(100, 22);
-    frame_PopUp.ButtonClose:SetText("Close");
+    frame_PopUp.ButtonClose:SetText("關閉");
     frame_PopUp.ButtonClose:SetNormalFontObject("GameFontNormal");
     frame_PopUp.ButtonClose:SetHighlightFontObject("GameFontHighlight");
 
@@ -1283,7 +1283,7 @@ function func:Create_AurasList(panel, name, cfg)
     frame_PopUp.Button = CreateFrame("Button", nil, frame_PopUp, "GameMenuButtonTemplate");
     frame_PopUp.Button:SetPoint("right", frame_PopUp.ButtonClose, "left");
     frame_PopUp.Button:SetSize(100, 22);
-    frame_PopUp.Button:SetText("Button");
+    frame_PopUp.Button:SetText("按鈕");
     frame_PopUp.Button:SetNormalFontObject("GameFontNormal");
     frame_PopUp.Button:SetHighlightFontObject("GameFontHighlight");
     frame_PopUp.Button:Hide();
@@ -1297,12 +1297,12 @@ function func:Create_AurasList(panel, name, cfg)
                 if not list[input] then
                     list[input] = 1;
 
-                    return true,  '|cfff563ff[ClassicPlates Plus]: |cff00eb00'..'added: '..spellName;
+                    return true,  '|cfff563ff[經典血條 Plus]: |cff00eb00'..'已新增: '..spellName;
                 elseif list[input] then
-                    return false, '|cfff563ff[ClassicPlates Plus]: |cffe3eb00"'..spellName..' is already listed';
+                    return false, '|cfff563ff[經典血條 Plus]: |cffe3eb00"'..spellName..' 已經在清單中';
                 end
             else
-                return false, '|cfff563ff[ClassicPlates Plus]: |cffff0000"'..input..'" not found';
+                return false, '|cfff563ff[經典血條 Plus]: |cffff0000無法找到 "'..input..'"';
             end
         end
     end
@@ -1435,7 +1435,7 @@ function func:Create_AurasList(panel, name, cfg)
                 panel.note:SetPoint("center", 0, 10);
             end
 
-            panel.note:SetText("List of auras will appear here");
+            panel.note:SetText("光環清單會顯示在這裡");
             panel.note:Show();
         else
             if panel.note then
@@ -1461,15 +1461,15 @@ function func:Create_AurasList(panel, name, cfg)
     frame_EditBox:SetMaxLetters(9);
     frame_EditBox:SetNumeric(true);
     frame_EditBox.title = panel:CreateFontString(nil, "overlay", "GameFontNormal");
-    frame_EditBox.title:SetText("Add Aura");
+    frame_EditBox.title:SetText("新增光環");
     frame_EditBox:SetPoint("topLeft", frame_EditBox.title, "bottomLeft", 4, -8);
     frame_EditBox.placeholder = frame_EditBox:CreateFontString(nil, "overlay", "GameFontDisableLeft");
     frame_EditBox.placeholder:SetPoint("left", frame_EditBox, "left", 2, 0);
-    frame_EditBox.placeholder:SetText("Enter spell ID (number)");
+    frame_EditBox.placeholder:SetText("輸入法術 ID (數字)");
     frame_EditBox.addButton = CreateFrame("Button", nil, frame_EditBox, "GameMenuButtonTemplate");
     frame_EditBox.addButton:SetPoint("left", frame_EditBox, "right", 8, 0);
     frame_EditBox.addButton:SetSize(74, 22);
-    frame_EditBox.addButton:SetText("Add");
+    frame_EditBox.addButton:SetText("新增");
     frame_EditBox.addButton:SetNormalFontObject("GameFontNormal");
     frame_EditBox.addButton:SetHighlightFontObject("GameFontHighlight");
     frame_EditBox.title:SetPoint("topLeft", 16, -74);
@@ -1536,15 +1536,15 @@ function func:Create_AurasList(panel, name, cfg)
     local frame_ImportButton = CreateFrame("Button", nil, panel, "GameMenuButtonTemplate");
     frame_ImportButton:SetPoint("topLeft", frame_EditBox, "bottomLeft", -6, -32);
     frame_ImportButton:SetSize(120, 22);
-    frame_ImportButton:SetText("Import Auras");
+    frame_ImportButton:SetText("匯入光環");
     frame_ImportButton:SetNormalFontObject("GameFontNormal");
     frame_ImportButton:SetHighlightFontObject("GameFontHighlight");
 
     frame_ImportButton:SetScript("OnClick", function()
-        frame_PopUp.title:SetText("Import " .. name);
-        frame_PopUp.note:SetText("Spell IDs separated by commas");
+        frame_PopUp.title:SetText("匯入 " .. name);
+        frame_PopUp.note:SetText("用逗號分隔多個法術 ID");
         frame_PopUp.input:SetText("");
-        frame_PopUp.Button:SetText("Import");
+        frame_PopUp.Button:SetText("匯入");
         frame_PopUp.Button:Show();
         frame_PopUp.Button:SetScript("OnClick", function()
             local import = frame_PopUp.input:GetText();
@@ -1593,7 +1593,7 @@ function func:Create_AurasList(panel, name, cfg)
             end
 
             if #resultPrint.success > 0 then
-                print("|cfff563ff[ClassicPlates Plus]: |cff00eb00" .. "Successfully added " .. #resultPrint.success .. " auras");
+                print("|cfff563ff[經典血條 Plus]: |cff00eb00" .. "已成功新增 " .. #resultPrint.success .. " 個光環");
             end
             if #resultPrint.error > 0 then
                 for k,v in ipairs(resultPrint.error) do
@@ -1619,15 +1619,15 @@ function func:Create_AurasList(panel, name, cfg)
     local frame_ExportButton = CreateFrame("Button", nil, panel, "GameMenuButtonTemplate");
     frame_ExportButton:SetPoint("left", frame_ImportButton, "right", 8, 0);
     frame_ExportButton:SetSize(120, 22);
-    frame_ExportButton:SetText("Export Auras");
+    frame_ExportButton:SetText("匯出光環");
     frame_ExportButton:SetNormalFontObject("GameFontNormal");
     frame_ExportButton:SetHighlightFontObject("GameFontHighlight");
 
     frame_ExportButton:SetScript("OnClick", function()
-        frame_PopUp.title:SetText("Export " .. name);
-        frame_PopUp.note:SetText("Enter spell IDs separated by commas");
+        frame_PopUp.title:SetText("匯出 " .. name);
+        frame_PopUp.note:SetText("輸入多個法術 ID 請用逗號分隔");
         frame_PopUp.input:SetText("");
-        frame_PopUp.Button:SetText("Select all");
+        frame_PopUp.Button:SetText("全選");
         frame_PopUp.Button:Show();
 
         local export;
@@ -1662,18 +1662,18 @@ function func:Create_AurasList(panel, name, cfg)
     local frame_RemoveAllButton = CreateFrame("Button", nil, panel, "GameMenuButtonTemplate");
     frame_RemoveAllButton:SetPoint("topLeft", frame_ImportButton, "bottomLeft", 0, -32);
     frame_RemoveAllButton:SetSize(248, 22);
-    frame_RemoveAllButton:SetText("Remove All Auras");
+    frame_RemoveAllButton:SetText("移除所有光環");
     frame_RemoveAllButton:SetNormalFontObject("GameFontNormal");
     frame_RemoveAllButton:SetHighlightFontObject("GameFontHighlight");
 
     local dialogName_removeAll = myAddon .. "_" .. name .. "_Confirm_RemoveAllButton";
     StaticPopupDialogs[dialogName_removeAll] = {
-        text = "Do you want to remove all auras?",
+        text = "是否要移除全部的光環?",
         timeout = 0,
         whileDead = true,
         hideOnEscape = true,
-        button1 = "Remove All",
-        button2 = "Cancel",
+        button1 = "全部移除",
+        button2 = "取消",
         OnAccept = function()
             CFG_ClassicPlatesPlus[cfg] = {};
 
@@ -2024,7 +2024,7 @@ function func:Create_Profiles(panel, name, cfg, default)
     frame_PopUp.Cancel = CreateFrame("Button", nil, frame_PopUp, "GameMenuButtonTemplate");
     frame_PopUp.Cancel:SetNormalFontObject("GameFontNormal");
     frame_PopUp.Cancel:SetHighlightFontObject("GameFontHighlight");
-    frame_PopUp.Cancel:SetText("Cancel");
+    frame_PopUp.Cancel:SetText("取消");
     frame_PopUp.Cancel:SetSize(frame_PopUp.Cancel:GetFontString():GetStringWidth() + 48, 22);
     frame_PopUp.Cancel:SetScript("OnClick", function()
         frame_PopUp:Hide();
@@ -2089,7 +2089,7 @@ function func:Create_Profiles(panel, name, cfg, default)
     local frame_ActivateButton = CreateFrame("Button", nil, newPanel, "GameMenuButtonTemplate");
     frame_ActivateButton:SetPoint("topLeft", frame_ProfileName, "bottomLeft", -28, -22);
     frame_ActivateButton:SetSize(246, 22);
-    frame_ActivateButton:SetText("Activate profile");
+    frame_ActivateButton:SetText("啟用設定檔");
     frame_ActivateButton:SetNormalFontObject("GameFontNormal");
     frame_ActivateButton:SetHighlightFontObject("GameFontHighlight");
 
@@ -2097,7 +2097,7 @@ function func:Create_Profiles(panel, name, cfg, default)
     local frame_CopyButton = CreateFrame("Button", nil, newPanel, "GameMenuButtonTemplate");
     frame_CopyButton:SetPoint("topLeft", frame_ActivateButton, "bottomLeft", 0, -32);
     frame_CopyButton:SetSize(120, 22);
-    frame_CopyButton:SetText("Create a Copy");
+    frame_CopyButton:SetText("建立複本");
     frame_CopyButton:SetNormalFontObject("GameFontNormal");
     frame_CopyButton:SetHighlightFontObject("GameFontHighlight");
 
@@ -2105,7 +2105,7 @@ function func:Create_Profiles(panel, name, cfg, default)
     local frame_ExportButton = CreateFrame("Button", nil, newPanel, "GameMenuButtonTemplate");
     frame_ExportButton:SetPoint("left", frame_CopyButton, "right", 8, 0);
     frame_ExportButton:SetSize(120, 22);
-    frame_ExportButton:SetText("Export");
+    frame_ExportButton:SetText("匯出");
     frame_ExportButton:SetNormalFontObject("GameFontNormal");
     frame_ExportButton:SetHighlightFontObject("GameFontHighlight");
 
@@ -2113,7 +2113,7 @@ function func:Create_Profiles(panel, name, cfg, default)
     local frame_ResetButton = CreateFrame("Button", nil, newPanel, "GameMenuButtonTemplate");
     frame_ResetButton:SetPoint("topLeft", frame_CopyButton, "bottomLeft", 0, -32);
     frame_ResetButton:SetSize(120, 22);
-    frame_ResetButton:SetText("Reset");
+    frame_ResetButton:SetText("重置");
     frame_ResetButton:SetNormalFontObject("GameFontNormal");
     frame_ResetButton:SetHighlightFontObject("GameFontHighlight");
 
@@ -2121,17 +2121,17 @@ function func:Create_Profiles(panel, name, cfg, default)
     local frame_DeleteButton = CreateFrame("Button", nil, newPanel, "GameMenuButtonTemplate");
     frame_DeleteButton:SetPoint("left", frame_ResetButton, "right", 8, 0);
     frame_DeleteButton:SetSize(120, 22);
-    frame_DeleteButton:SetText("Delete");
+    frame_DeleteButton:SetText("刪除");
     frame_DeleteButton:SetNormalFontObject("GameFontNormal");
     frame_DeleteButton:SetHighlightFontObject("GameFontHighlight");
 
     if selectedProfile == CFG_ClassicPlatesPlus.Profile then
         frame_ActivateButton:Disable();
-        frame_ActivateButton:SetText("Profile Activated");
+        frame_ActivateButton:SetText("設定檔已啟用");
         frame_DeleteButton:Disable();
     else
         frame_ActivateButton:Enable();
-        frame_ActivateButton:SetText("Activate Profile");
+        frame_ActivateButton:SetText("啟用設定檔");
         frame_DeleteButton:Enable();
     end
 
@@ -2144,7 +2144,7 @@ function func:Create_Profiles(panel, name, cfg, default)
     local frame_ImportButton = CreateFrame("Button", nil, newPanel, "GameMenuButtonTemplate");
     frame_ImportButton:SetPoint("topRight", -36, -70);
     frame_ImportButton:SetSize(96, 22);
-    frame_ImportButton:SetText("Import");
+    frame_ImportButton:SetText("匯出");
     frame_ImportButton:SetNormalFontObject("GameFontNormal");
     frame_ImportButton:SetHighlightFontObject("GameFontHighlight");
 
@@ -2152,7 +2152,7 @@ function func:Create_Profiles(panel, name, cfg, default)
     local frame_CreateButton = CreateFrame("Button", nil, newPanel, "GameMenuButtonTemplate");
     frame_CreateButton:SetPoint("right", frame_ImportButton, "left", -10, 0);
     frame_CreateButton:SetSize(96, 22);
-    frame_CreateButton:SetText("Create New");
+    frame_CreateButton:SetText("建立新的");
     frame_CreateButton:SetNormalFontObject("GameFontNormal");
     frame_CreateButton:SetHighlightFontObject("GameFontHighlight");
 
@@ -2260,11 +2260,11 @@ function func:Create_Profiles(panel, name, cfg, default)
 
                     if selectedProfile == CFG_ClassicPlatesPlus.Profile then
                         frame_ActivateButton:Disable();
-                        frame_ActivateButton:SetText("Profile Activated");
+                        frame_ActivateButton:SetText("設定檔已啟用");
                         frame_DeleteButton:Disable();
                     else
                         frame_ActivateButton:Enable();
-                        frame_ActivateButton:SetText("Activate Profile");
+                        frame_ActivateButton:SetText("啟用設定檔");
                         frame_DeleteButton:Enable();
                     end
 
@@ -2313,11 +2313,11 @@ function func:Create_Profiles(panel, name, cfg, default)
 
         if selectedProfile == CFG_ClassicPlatesPlus.Profile then
             frame_ActivateButton:Disable();
-            frame_ActivateButton:SetText("Profile Activated");
+            frame_ActivateButton:SetText("設定檔已啟用");
             frame_DeleteButton:Disable();
         else
             frame_ActivateButton:Enable();
-            frame_ActivateButton:SetText("Activate Profile");
+            frame_ActivateButton:SetText("啟用設定檔");
             frame_DeleteButton:Enable();
         end
 
@@ -2327,22 +2327,22 @@ function func:Create_Profiles(panel, name, cfg, default)
 
     -- CLICKS
     frame_RenameButton:SetScript("OnClick", function()
-        frame_PopUp.title:SetText("Rename profile");
+        frame_PopUp.title:SetText("重新命名設定檔");
         frame_PopUp.inputSingle:SetText(CFG_Account_ClassicPlatesPlus.Profiles[selectedProfile].displayName);
-        frame_PopUp.Button1:SetText("Rename");
+        frame_PopUp.Button1:SetText("重新命名");
         frame_PopUp.Button1:SetScript("OnClick", function()
             local input = func:TrimEmptySpaces(frame_PopUp.inputSingle:GetText());
             local filteredText = input:gsub("[^%w%s%-_]", "");
 
             if not func:ProfileNameAvailable(input) then
-                print('|cfff563ff[ClassicPlates Plus]: |cffFF5600' .. 'Profile with the name "' .. input .. '" already exists');
+                print('|cfff563ff[經典血條 Plus]: |cffFF5600' .. '設定檔名稱 "' .. input .. '" 已經存在');
             else
                 if input == filteredText then
                     CFG_Account_ClassicPlatesPlus.Profiles[selectedProfile].displayName = input;
                     updateProfilesList();
                     frame_PopUp:Hide();
                 else
-                    print('|cfff563ff[ClassicPlates Plus]: |cffFF5600' .. 'Invalid characters. Use letters, numbers, hyphens, and underscores only.');
+                    print('|cfff563ff[經典血條 Plus]: |cffFF5600' .. '無效的字元。只能使用字母、數字、連字線和底線。');
                 end
             end
         end);
@@ -2355,11 +2355,11 @@ function func:Create_Profiles(panel, name, cfg, default)
         CFG_ClassicPlatesPlus.Profile = selectedProfile;
         if selectedProfile == CFG_ClassicPlatesPlus.Profile then
             frame_ActivateButton:Disable();
-            frame_ActivateButton:SetText("Profile Activated");
+            frame_ActivateButton:SetText("設定檔已啟用");
             frame_DeleteButton:Disable();
         else
             frame_ActivateButton:Enable();
-            frame_ActivateButton:SetText("Activate Profile");
+            frame_ActivateButton:SetText("啟用設定檔");
             frame_DeleteButton:Enable();
         end
 
@@ -2370,8 +2370,8 @@ function func:Create_Profiles(panel, name, cfg, default)
     end);
 
     frame_DeleteButton:SetScript("OnClick", function()
-        frame_PopUp.title:SetText("Are you sure you want to delete this profile?");
-        frame_PopUp.Button1:SetText("Delete");
+        frame_PopUp.title:SetText("是否確定要刪除這個設定檔?");
+        frame_PopUp.Button1:SetText("刪除");
         frame_PopUp.Button1:SetScript("OnClick", function()
             if selectedProfile ~= CFG_ClassicPlatesPlus.Profile then
                 CFG_Account_ClassicPlatesPlus.Profiles[selectedProfile] = nil;
@@ -2379,7 +2379,7 @@ function func:Create_Profiles(panel, name, cfg, default)
 
                 updateProfilesList();
             else
-                print('|cfff563ff[ClassicPlates Plus]: |cffFF5600' .. "Can't delete an active profile");
+                print('|cfff563ff[經典血條 Plus]: |cffFF5600' .. "無法刪除啟用中的設定檔");
             end
 
             frame_PopUp:Hide();
@@ -2389,8 +2389,8 @@ function func:Create_Profiles(panel, name, cfg, default)
     end);
 
     frame_ResetButton:SetScript("OnClick", function()
-        frame_PopUp.title:SetText("Are you sure you want to reset this profile?");
-        frame_PopUp.Button1:SetText("Reset");
+        frame_PopUp.title:SetText("是否確定要重置這個設定檔?");
+        frame_PopUp.Button1:SetText("重置");
         frame_PopUp.Button1:SetScript("OnClick", function()
             for k,v in pairs(data.settings.configs.all) do
                 if k and k ~= "displayName" then
@@ -2413,16 +2413,16 @@ function func:Create_Profiles(panel, name, cfg, default)
         local playerRealm = GetRealmName("player");
         local profileName = playerName .. " - " .. playerRealm;
 
-        frame_PopUp.title:SetText("Create a new profile");
+        frame_PopUp.title:SetText("建立新設定檔");
         frame_PopUp.inputSingle:SetText(profileName);
-        frame_PopUp.Button1:SetText("Create");
+        frame_PopUp.Button1:SetText("建立");
         frame_PopUp.Button1:SetScript("OnClick", function()
             local input = func:TrimEmptySpaces(frame_PopUp.inputSingle:GetText());
             local filteredText = input:gsub("[^%w%s%-_]", "");
             local profileID = func:GenerateID();
 
             if not func:ProfileNameAvailable(input) then
-                print('|cfff563ff[ClassicPlates Plus]: |cffFF5600' .. 'Profile with the name "' .. input .. '" already exists');
+                print('|cfff563ff[經典血條 Plus]: |cffFF5600' .. '設定檔名稱 "' .. input .. '" 已經存在');
             else
                 if input == filteredText then
                     CFG_Account_ClassicPlatesPlus.Profiles[profileID] = { displayName = input };
@@ -2438,7 +2438,7 @@ function func:Create_Profiles(panel, name, cfg, default)
 
                     frame_PopUp:Hide();
                 else
-                    print('|cfff563ff[ClassicPlates Plus]: |cffFF5600' .. 'Invalid characters. Use letters, numbers, hyphens, and underscores only.');
+                    print('|cfff563ff[經典血條 Plus]: |cffFF5600' .. '無效的字元。只能使用字母、數字、連字線和底線。');
                 end
             end
         end);
@@ -2448,16 +2448,16 @@ function func:Create_Profiles(panel, name, cfg, default)
     end);
 
     frame_CopyButton:SetScript("OnClick", function()
-        frame_PopUp.title:SetText("Copy profile");
+        frame_PopUp.title:SetText("複製設定檔");
         frame_PopUp.inputSingle:SetText(CFG_Account_ClassicPlatesPlus.Profiles[selectedProfile].displayName .. " - Copy");
-        frame_PopUp.Button1:SetText("Copy");
+        frame_PopUp.Button1:SetText("複製");
         frame_PopUp.Button1:SetScript("OnClick", function()
             local input = func:TrimEmptySpaces(frame_PopUp.inputSingle:GetText());
             local filteredText = input:gsub("[^%w%s%-_]", "");
             local profileID = func:GenerateID();
 
             if not func:ProfileNameAvailable(input) then
-                print('|cfff563ff[ClassicPlates Plus]: |cffFF5600' .. 'Profile with the name "' .. input .. '" already exists');
+                print('|cfff563ff[經典血條 Plus]: |cffFF5600' .. '設定檔名稱 "' .. input .. '" 已經存在');
             else
                 if input == filteredText then
                     CFG_Account_ClassicPlatesPlus.Profiles[profileID] = {};
@@ -2474,7 +2474,7 @@ function func:Create_Profiles(panel, name, cfg, default)
 
                     frame_PopUp:Hide();
                 else
-                    print('|cfff563ff[ClassicPlates Plus]: |cffFF5600' .. 'Invalid characters. Use letters, numbers, hyphens, and underscores only.');
+                    print('|cfff563ff[經典血條 Plus]: |cffFF5600' .. '無效的字元。只能使用字母、數字、連字線和底線');
                 end
             end
         end);
@@ -2484,8 +2484,8 @@ function func:Create_Profiles(panel, name, cfg, default)
     end);
 
     frame_ExportButton:SetScript("OnClick", function()
-        frame_PopUp.title:SetText("Export profile");
-        frame_PopUp.Button1:SetText("Select all");
+        frame_PopUp.title:SetText("匯出設定檔");
+        frame_PopUp.Button1:SetText("全選");
 
         local export = serializeTable(CFG_Account_ClassicPlatesPlus.Profiles[selectedProfile]);
         if export then
@@ -2507,8 +2507,8 @@ function func:Create_Profiles(panel, name, cfg, default)
     end);
 
     frame_ImportButton:SetScript("OnClick", function()
-        frame_PopUp.title:SetText("Import profile");
-        frame_PopUp.Button1:SetText("Import");
+        frame_PopUp.title:SetText("匯入設定檔");
+        frame_PopUp.Button1:SetText("匯入");
         frame_PopUp.inputMulti:SetScript("OnTextChanged", nil);
 
         frame_PopUp.Button1:SetScript("OnClick", function()
@@ -2573,7 +2573,7 @@ function func:Create_Profiles(panel, name, cfg, default)
                 updateProfilesList();
                 frame_PopUp:Hide();
             else
-                print(addonName..red.."Import failed, invalid configs");
+                print(addonName..red.."匯入失敗，無效的設定");
             end
         end);
 

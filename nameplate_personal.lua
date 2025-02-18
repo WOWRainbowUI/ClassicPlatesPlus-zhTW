@@ -215,7 +215,7 @@ function func:PersonalNameplateCreate()
             CFG.HealthFontColor.b,
             CFG.HealthFontColor.a
         );
-        nameplate.healthSecondary:SetScale(0.9 + scaleOffset);
+        nameplate.healthSecondary:SetScale(0.5 + scaleOffset); -- 暫時修正
 
         -- Health total
         nameplate.healthTotal = nameplate.main:CreateFontString(nil, "overlay", "GameFontNormalOutline");
@@ -228,7 +228,7 @@ function func:PersonalNameplateCreate()
             CFG.HealthFontColor.b,
             CFG.HealthFontColor.a
         );
-        nameplate.healthTotal:SetScale(0.9 + scaleOffset);
+        nameplate.healthTotal:SetScale(0.5 + scaleOffset); -- 暫時修正
 
         -- Powebar
         nameplate.powerbar = CreateFrame("StatusBar", nil, nameplate.main);
@@ -361,7 +361,7 @@ function func:PersonalNameplateCreate()
             CFG.HealthFontColor.b,
             CFG.HealthFontColor.a
         );
-        nameplate.power:SetScale(0.9 + scaleOffset);
+        nameplate.power:SetScale(0.5 + scaleOffset); -- 暫時修正
 
         nameplate.powerTotal = nameplate.main:CreateFontString(nil, "overlay", "GameFontNormalOutline");
         nameplate.powerTotal:SetParent(nameplate.main);
@@ -373,7 +373,7 @@ function func:PersonalNameplateCreate()
             CFG.HealthFontColor.b,
             CFG.HealthFontColor.a
         );
-        nameplate.powerTotal:SetScale(0.9 + scaleOffset);
+        nameplate.powerTotal:SetScale(0.5 + scaleOffset); -- 暫時修正
 
         -- Extra bar
         nameplate.extraBar = CreateFrame("StatusBar", nil, nameplate.main);

@@ -114,7 +114,7 @@ function func:Nameplate_Added(unit, visuals)
                     if CFG.ShowLevel then
                         unitFrame.threatPercentage:SetPoint("bottom", unitFrame.healthbar, "top", 0, -1.5);
                         unitFrame.powerbar:SetPoint("top", unitFrame.healthbar, "bottom", 0, -1);
-                        unitFrame.healthMain:SetPoint("center", unitFrame.healthbar, "center");
+                        unitFrame.healthMain:SetPoint("center", unitFrame.healthbar, "center", 9, 0);
                         unitFrame.healthSecondary:SetPoint("left", unitFrame.healthbar, "left", 4, 0);
                         unitFrame.classification:SetPoint("center", unitFrame.portrait.texture, "center", -5, -2);
                         unitFrame.quest:SetPoint("left", unitFrame.level, "right", -14, 1);

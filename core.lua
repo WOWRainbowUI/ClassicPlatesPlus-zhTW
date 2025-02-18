@@ -378,22 +378,10 @@ function func:AbbreviateNumbers(num)
         return nil;
     end
 
-    if num >= 1e11 then
-        num = string.format("%.0fB", num / 1e9)
-    elseif num >= 1e10 then
-        num = string.format("%.0fB", num / 1e9)
-    elseif num >= 1e9 then
-        num = string.format("%.1fB", num / 1e9)
-    elseif num >= 1e8 then
-        num = string.format("%.0fM", num / 1e6)
-    elseif num >= 1e7 then
-        num = string.format("%.0fM", num / 1e6)
-    elseif num >= 1e6 then
-        num = string.format("%.1fM", num / 1e6)
+	if num >= 1e8 then
+        num = string.format("%.2f億", num / 1e8)
     elseif num >= 1e4 then
-        num = string.format("%.0fK", num / 1e3)
-    elseif num >= 1e3 then
-        num = string.format("%.1fK", num / 1e3);
+        num = string.format("%.0f萬", num / 1e4)
     end
 
     return num;
